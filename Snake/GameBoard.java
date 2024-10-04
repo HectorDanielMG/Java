@@ -15,11 +15,11 @@ import javax.swing.Timer;
 
 public class GameBoard extends JPanel implements ActionListener {
 
-    private final int B_WIDTH = 300;
-    private final int B_HEIGHT = 300;
+    private final int B_WIDTH = 600;  // Aumentar ancho
+    private final int B_HEIGHT = 600; // Aumentar altura
     private final int DOT_SIZE = 10; 
-    private final int ALL_DOTS = 900;
-    private final int RAND_POS = 29;
+    private final int ALL_DOTS = 3600;  // Número total de puntos
+    private final int RAND_POS = 59;    // Ajustar la posición aleatoria
     private final int DELAY = 140;
 
     private final int x[] = new int[ALL_DOTS];
@@ -68,9 +68,10 @@ public class GameBoard extends JPanel implements ActionListener {
     private void initGame() {
         dots = 3;
 
+        // Ajustar las posiciones iniciales para que la serpiente no empiece cerca de las paredes
         for (int z = 0; z < dots; z++) {
-            x[z] = 50 - z * 10;
-            y[z] = 50;
+            x[z] = 100 - z * 10;  // Alejar del borde izquierdo
+            y[z] = 100;           // Alejar del borde superior
         }
 
         locateApple();
